@@ -1,0 +1,8 @@
+★DataClass에 적용, (책 제목, 가격, 저자, 출판사)
+
+new InfoClass("이것이 자바다", 30000, "신용권", "한빛미디어");
+new InfoClass("파이썬", 25000, "홍길동", "길벗");
+new InfoClass("정보처리기사", 35000, "기사", "길벗");
+new InfoClass("HTML", 15000, "꾸미기", "한빛미디어");
+new InfoClass("JSP&Servlet", 23000, "열혈", "길벗출판사");
+new InfoClass("오라클", 21000, "oracle", "A길벗 출판사");

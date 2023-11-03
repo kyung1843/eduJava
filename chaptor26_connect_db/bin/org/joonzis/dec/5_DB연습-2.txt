@@ -1,0 +1,68 @@
+다음 DB 작업을 수행하시오.
+
+회원 시퀀스 (user_seq)
+
+create sequence user_seq start with 1 increment by 1;
+
+
+회원 테이블 (userTable)
+
+필드
+1. 회원번호	userNo PK 시퀀스
+2. 회원ID		userId 필수 중복 안 됨
+3. 회원비밀번호	userPw 필수
+4. 회원연락처	userTel 중복 안 됨
+5. 회원멤버쉽	userMembership gold / silver / bronze 중 하나
+6. 회원이메일	userEmail 중복 안 됨
+7. 회원포인트	userPoint 기본 1000점
+8. 회원가입일	joinDate 기본 현재 날짜
+
+create table userTable (
+   userNo number not null primary key, 
+   userId varchar2(20) not null unique, 
+   userPw varchar2(20) not null, 
+   userTel varchar2(20) unique, 
+   userMembership varchar2(10) check (userMembership in('gold', 'silver', 'bronze')),
+   userEmail varchar2(20) unique,
+   userPoint number default 1000, 
+   joinDate date default sysdate
+);
+
+
+적절한 데이터 5개 이상 삽입하시오.
+
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id01', '1111', '010-1111-1111', 'gold', 'id01@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id02', '1111', '010-1111-2222', 'silver', 'id02@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id03', '1111', '010-1111-3333', 'bronze', 'id03@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id04', '1111', '010-1111-4444', 'gold', 'id04@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id05', '1111', '010-1111-5555', 'silver', 'id05@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id06', '1111', '010-1111-6666', 'bronze', 'id06@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id07', '1111', '010-1111-7777', 'gold', 'id07@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id08', '1111', '010-1111-8888', 'silver', 'id08@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id09', '1111', '010-1111-9999', 'bronze', 'id09@aa.com');
+insert into userTable (userNo, userId, userPw, userTel, userMembership, userEmail) values (user_seq.nextval, 'id10', '1111', '010-1111-0000', 'gold', 'id10@aa.com');
+
+commit;
+
+
+다음 질의문을 처리하시오.
+
+1) userNo 이 5 이상인 회원을 검색하시오.
+2) userNo 이 3 ~ 7 사이인 회원을 검색하시오.
+3) userTel 마지막 4자리가 '5555' 인 회원을 검색하시오.
+4) userMembership 이 'gold' 인 회원의 userPoint 평균을 출력하시오. 
+5) userMembership 이 'gold' 인 회원들의 userPoint 를 모두 3배 증가시키시오.
+6) userId 가 'id08' 인 회원의 userPw 를 '2222'로 수정하시오.
+7) userMembership 이 'bronze' 인 회원들 중에서 userPoint 가 1000 이상인 회원들의 
+	userMembership 을 'silver'로 수정하시오.
+8) userNo 가 5 인 회원을 삭제하시오.
+
+1) select * from usertable where userNo >= 5;
+2) select * from usertable where userNo between 3 and 7;
+3) select * from usertable where userTel like '%5555';
+4) select avg(userPoint) as 평균 from usertable where userMembership = 'gold';
+5) update usertable set userPoint = userPoint * 3 where userMembership = 'gold';
+6) update usertable set userPw = '2222' where userId = 'id08';
+7) update usertable set userMembership = 'silver' 
+	where userMembership = 'bronze' and userPoint >= 1000;
+8) delete from usertable where userNo = 5;

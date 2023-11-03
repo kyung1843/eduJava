@@ -1,0 +1,77 @@
+다음 DB 작업을 수행하시오.
+
+계정 생성(james/bond)
+create user james identified by bond;
+
+계정 권한 부여
+grant connect, resource, dba to james;
+
+
+
+회원 시퀀스(member_seq)
+create sequence member_seq;
+
+
+회원 테이블(member)
+
+	회원번호(no)		number 시퀀스 PK
+	아이디(id)		varchar2(20) not null unique
+	비밀번호(pw)		varchar2(20) not null
+	이메일(email)		varchar2(40) unique
+	주소(addr)		varchar2(40) null
+	포인트(point)		number default 0
+	생일(birthday)	date null
+	가입일(regdate)	date default sysdate
+
+create table member (
+    no number primary key, 
+    id varchar2(20) not null unique, 
+    pw varchar2(20) not null, 
+    email varchar2(40) unique, 
+    addr varchar2(40) null, 
+    point number default 0, 
+    birthday date null, 
+    regdate date default sysdate);
+
+
+
+구매 시퀀스(buy_seq)
+create sequence buy_seq;
+
+
+구매 테이블(buy)
+
+	구매번호(buy_no)	number 시퀀스 PK
+	회원번호(no)	number references member(no)
+	제품번호(pno)	number not null
+	수량(ea)		number not null
+
+create table buy (
+    buy_no number primary key, 
+    no number references member(no), 
+    pno number not null, 
+    ea number not null);
+
+
+회원 5명 입력
+insert into member (no, id, pw, email, addr, birthday) values (member_seq.nextval, 'id01', '1111', 'id01@naver.com', 'seoul', '1999-12-12');
+insert into member (no, id, pw, email, addr, birthday) values (member_seq.nextval, 'id02', '2222', 'id02@gmail.com', 'seoul', '1999-12-12');
+insert into member (no, id, pw, email, addr, birthday) values (member_seq.nextval, 'id03', '3333', 'id03@naver.com', 'incheon', '1999-12-12');
+insert into member (no, id, pw, email, addr, birthday) values (member_seq.nextval, 'id04', '4444', 'id04@gmail.com', 'jeju', '1999-12-12');
+insert into member (no, id, pw, email, addr, birthday) values (member_seq.nextval, 'id05', '5555', 'id05@daum.net', 'gyeonggi', '1999-12-12');
+commit;
+
+구매 10건 입력
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 1, 1000, 1);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 2, 2000, 1);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 3, 3000, 2);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 1, 4000, 1);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 5, 1000, 3);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 4, 4000, 1);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 2, 5000, 2);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 2, 2000, 2);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 3, 1000, 1);
+insert into buy (buy_no, no, pno, ea) values (buy_seq.nextval, 10, 1000, 1);	-- 참조무결성 위배 (2번째 값 no는 1~5 사이만 가능하다.)
+
+
+

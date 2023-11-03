@@ -1,0 +1,58 @@
+DB (데이터베이스)
+
+	1. 파일시스템이 발전한 형태
+	2. 데이터 중복 문제 해결
+	3. 데이터 저장을 위한 주요 수단
+	4. 계층형DB, 관계형DB, 객체지향형DB 등 존재
+	5. 주로 사용되는 건 관계형DB(Relational DataBase)
+
+
+관계형 DB(Relational DataBase)
+
+	1. 테이블(릴레이션, 표)를 이용한 데이터 저장
+	2. 종류 : 오라클, MySql, MS-Sql, MariaDB 등
+	3. DB 사용을 위한 표준SQL(ANSI)이 존재
+	4. DB에 따라 각자 약간 다른 문법을 사용
+	5. 오라클DB는 PL-SQL 이라 함
+
+테이블
+
+	1. 구성
+		1) 필드, 열, 칸, column, 속성(attribute)
+		2) 레코드, 행, 줄, row, 튜플(tuple)
+	2. 작성 순서
+		1) 필드 : 필드이름, 타입
+		2) 레코드 : 실제 데이터
+	3. CRUD
+		1) CREATE : 데이터 생성 - Insert
+		2) READ   : 데이터 읽기 - Select
+		3) UPDATE : 데이터 수정 - Update
+		4) DELETE : 데이터 삭제 - Delete
+
+
+SQL : Structured Query Language (구조화된 질의어)
+
+	1. DDL (Data Definition Language)
+		1) 데이터 정의어
+		2) 종류 : CREATE, ALTER, DROP
+	2. DML (Data Manipulation Language)
+		1) 데이터 조작어
+		2) 종류 : CRUD
+	3. DCL (Data Control Language)
+		1) 데이터 제어어
+		2) 종류 : GRANT, REVOKE, COMMIT, ROLLBACK
+
+
+CRUD(Create, Read, Update, Delete)
+
+	1. insert into 테이블 values (값1, 값2, 값3);
+	   insert into 테이블 (필드1, 필드2) values (값1, 값2);
+
+	2. update 테이블 set 업데이트내용 where 조건;
+	   update 테이블 set 업데이트내용1, 업데이트내용2 where 조건;
+
+	3. delete from 테이블 where 조건;
+
+	4. select 필드1, 필드2 from 테이블;
+	   select * from 테이블;
+	   select * from 테이블 where 조건;

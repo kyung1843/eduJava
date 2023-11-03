@@ -1,0 +1,46 @@
+다음 DB 작업을 수행하시오.
+
+학생 시퀀스 (student_seq)
+create sequence student_seq;
+
+신청 시퀀스 (join_seq)
+create sequence join_seq;
+
+아래와 같은 방식으로 테이블 3개를 생성하시오.
+
+1. student 테이블 (학생)
+학번	stuNo 	시퀀스/pk	
+성명	stuName			
+주소	stuAddr			
+
+2. dept 테이블 (학과)
+학과코드	deptCode pk
+학과명	deptName
+사무실	deptOffice
+
+3. join 테이블 (신청)
+순번		joinNo		시퀀스/pk
+학번		stuNo		fk with student
+학과코드	deptCode	fk with dept
+
+
+
+
+
+create table student (
+    stuNo number primary key,
+    --stuNo number constraint student_stuNo_PK primary key,
+    stuName varchar2(10),
+    stuAddr varchar2(20));
+
+create table dept (
+    deptCode varchar2(5) primary key,
+    --deptCode varchar2(5) constraint dept_deptCode_PK primary key,
+    deptName varchar2(10),
+    deptOffice varchar2(10));
+
+create table join (
+    joinNo number primary key,
+    --joinNo number constraint join_joinNo_PK primary key,
+    stuNo number constraint student_stuNo_FK references student (stuNo),
+    deptCode varchar2(5) constraint dept_deptCode_FK references dept (deptCode));

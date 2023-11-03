@@ -1,0 +1,8 @@
+Random클래스
+1.객체(인스턴스) 생성한다
+2.객체(인스턴스)의 메소드 호출로 난수 발생시킨다
+      nextInt()                : int형 범위 내 난수 발생
+      nextBoolean()            : true or false
+      nextLong()               : long형 범위 내 난수 발생
+      nextFloat()              : 0~0.9999까지의 난수 발생(0 이상 1 미만)
+      nextDouble()             :  0~0.9999까지의 난수 발생(0 이상 1 미만)

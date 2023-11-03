@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DBConnect.java&apos; to &apos;chaptor28_preparestatement/src/org.joonzis.db&apos;&#x0D;&#x0A;- Original project: &apos;chaptor27_statement&apos;&#x0D;&#x0A;- Destination element: &apos;chaptor28_preparestatement/src/org.joonzis.db&apos;&#x0D;&#x0A;- Original element: &apos;org.joonzis.db.DBConnect.java&apos;" description="Copy compilation unit" destination="=chaptor28_preparestatement/src&lt;org.joonzis.db" element1="/src&lt;org.joonzis.db{DBConnect.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1666573303592" units="1" version="1.0"/>
+</session>
