@@ -1,5 +1,8 @@
 package org.joonzis.ex;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class Ex04_String {
 	public static void main(String[] args) {
 		
@@ -7,11 +10,14 @@ public class Ex04_String {
 		
 		System.out.println(str1.toLowerCase());		// 기존 문자열을 소문자로 변환
 		System.out.println(str1.toUpperCase());		// 기존 문자열을 대문자로 변환
+
 		System.out.println(str1.indexOf('v'));		// 지정문자의 index 번호 반환
 		System.out.println(str1.charAt(2));			// 지정된 index의 문자 반환
+
 		System.out.println(str1.startsWith("J"));	// 지정0된 문자열로 시작되는지(boolean)
 		System.out.println(str1.endsWith("a"));		// 지정된 문자열로 끝나는지(boolean)
 		System.out.println(str1.contains("a"));		// 지정한 문자열을 포함하는지(boolean)
+		
 		System.out.println(str1.substring(1));		// 지정한 index 부터 모든 문자열을 반환
 		System.out.println(str1.substring(1,3));	// 지정한 첫 번째 index 부터 두 번째 index 직전 까지의 문자열을 반환
 		
@@ -27,14 +33,23 @@ public class Ex04_String {
 			System.out.println(false);
 		}
 		
-		String str4;
+		// String str4;
 		//System.out.println(str4.isEmpty());		// 메소드 사용 불가(초기화 필요)
 		
 		String str5 = "";
 		System.out.println(str5.isEmpty());		// 문자열 변수의 값이 있는지 (boolean)
 		
-		String str6 = null;
-		System.out.println(str6.isEmpty());		// 실행 후, NullPointer 에러 발생
+		// String str6 = null;
+		// System.out.println(str6.isEmpty());		// 실행 후, NullPointer 에러 발생
 		
-	}
+		//문자열 역순
+		String str7 = "jaron";
+
+		StringBuffer sb = new StringBuffer(str7);
+		String rs = sb.reverse().toString();
+		
+		System.out.println(rs);
+
+
+	}	
 }

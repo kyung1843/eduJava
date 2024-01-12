@@ -1,7 +1,6 @@
 package org.joonzis.ex;
 
-public class Ex03_PrimitiveType {
-
+public class Ex03_PrimitiveType {  
 	public static void main(String[] args) {
 		 
 		/*

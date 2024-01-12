@@ -1,5 +1,8 @@
 package org.joonzis.ex;
 
+import java.util.OptionalDouble;
+import java.util.stream.IntStream;
+
 public class Ex05_for {
 
 	public static void main(String[] args) {
@@ -60,8 +63,32 @@ public class Ex05_for {
 			}
 			System.out.println();
 		}
+
+		/*
+		 * Stream 문법
+		 */
+		System.out.println("intStream.of=========================");
+		//1~5
+		IntStream.of(1,2,3,4,5).forEach(System.out::println);
+
+		System.out.println("=========================");
+		//1~9
+		IntStream.range(1, 10).forEach(System.out::println);
 		
+		System.out.println("intStream.rangeClosed=========================");
+		//0~10
+		IntStream.rangeClosed(0, 10).forEach(System.out::println);
 		
+		int sum = IntStream.rangeClosed(0, 10).sum();
+		System.out.println(sum);
+		
+		OptionalDouble avg = IntStream.rangeClosed(0, 10).average();
+		System.out.println(avg);
+		
+		int[] arr = IntStream.rangeClosed(0, 10).filter(e -> e % 2 ==0).toArray();
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);	
+		}
 	}
 
 }

@@ -47,8 +47,8 @@ class User{
 
 public class Test02 {
 	public static void main(String[] args) {
-		User u1 = new User("kyung1843", "1234");
-		User u2 = new User("kyung1843", "1234");
+		User u1 = new User("joonzis1843", "1234");
+		User u2 = new User("joonzis1843", "1234");
 		
 		if(u1.equals(u2)) {
 			System.out.println("일치합니다");
